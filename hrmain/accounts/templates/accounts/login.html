@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script scr={% static "js/login.js" %} type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css", href={% static "css/login.css"%}> 
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> {% endcomment %}
+{% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> {% endcomment %}
+</head>
+
+<body>
+    <header>
+           <div class="heading">
+             
+            <img src={% static "image/logo.jpg" %} type="image/jpg" alt=""> 
+            <h1> Employee Management Portal</h1>  &nbsp; 
+            
+          </div>
+          
+
+           <div class="right-section">
+             <a class="login-form-link" href="./" id="linkUserLogin"> User Login</a> &nbsp;
+             <a class="login-form-link" href="./" id="linkAdminLogin"> <i class="fa-solid fa-user-headset"></i> Admin Login</a>
+           </div>
+         
+          
+    </header>
+    {% comment %} <div class="login-status login-status-display"> {% endcomment %}
+        {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+        {% endif %}
+    {% comment %} </div>          {% endcomment %}
+        <div class="login-container">
+
+    <main>
+        
+            
+          <!-- user log in portal -->
+          <form action="" method="post" class="form" id="user-login" >
+              
+            <div class="input-group">
+              <input type="text" name="lusername" id="lusername" required>
+              <label for="lusername">User Name</label>
+            </div>
+            <div class="input-group">
+              <input type="password" name="lpass" id="lpass" required disable >
+              <label for="lpass">Password</label>
+            </div>
+            {% csrf_token %}
+            <button type="submit" class="submit-btn"> Login</button>
+            <!-- <a href="#forgot-pw" class="forgot-pw">Forgot Password?</a> -->
+            <!-- admin login portal -->
+          </form>
+            
+            {% comment %} <form action="" class="form form-hidden " id="admin-login">
+              <img src={% static "/media/blog-wp-login.png" %} alt="">
+              <div class="input-group">
+                <input type="text" name="loginUser" id="loginAdmin" required>
+                <label for="loginUser">admin user</label>
+              </div>
+              <div class="input-group">
+                <input type="password" name="adminPassword" id="adminPassword" required  >
+                <label for="loginPassword">Password</label>
+              </div>
+              <input type="submit" value="Login" class="submit-btn">
+              <!-- <a href="#forgot-pw" class="forgot-pw">Forgot Password?</a> -->
+            </form> {% endcomment %}
+        
+            <!-- <div id="forgot-pw">
+              <form action="" class="form">
+                <a href="#" class="close">&times;</a>
+                <h2>Reset Password</h2>
+                <div class="input-group">
+                  <input type="email" name="email" id="email" required>
+                  <label for="email">Email</label>
+                </div>
+                <input type="submit" value="Submit" class="submit-btn">
+              </form>
+            </div> -->
+          </div>
+    </main>
+    
+</body>
+</html>

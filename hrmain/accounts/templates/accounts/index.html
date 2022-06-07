@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomePage</title>
+  <link rel="stylesheet" type="text/css", href={% static "css/style.css"%}>
+</head>
+
+<body>
+  <div class="container">
+    <div class="home-login-btn"> <a href="accounts/"> <span>Switch to Login Panel</span> </a></div>
+
+
+    <div class="patterns">
+      <img class="home-page-logo" type="image/jpg" src={% static "image/logo.jpg" %} alt="">
+      <svg width="100%" height="10%">
+        <text x="50%" y="100%" text-anchor="middle">
+          Welcome To
+          Audvik Leave
+          Portal
+        </text>
+
+      </svg>
+      <h5> &#169; Audviklabs</h5>
+       <p class="tag-line"> <b> This is a Leave Management System which can be used for managing
+            all the leave application details of employees of the organization. </b> 
+      </p>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

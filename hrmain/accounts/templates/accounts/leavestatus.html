@@ -1,0 +1,40 @@
+{% extends 'accounts/base.html' %}
+  {% load static %}
+
+
+
+{% comment %} <link rel="stylesheet" type="text/css", href={% static "css/leavestatus.css"%}> {% endcomment %}
+
+{% block body %}
+<h1> Your leave History:</h1>
+<table id="customers">
+    <thead>
+      <tr>
+        <th scope="col">S.no</th>
+        <th scope="col">From Date</th>
+        <th scope="col">To Date</th>
+        <th scope="col">Leave Type</th>
+        <th scope="col">Reason</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      {% for i in leavedata|slice:"::-1" %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{i.fdate}}</td>
+        <td>{{i.tdate}}</td>
+        <td>{{i.type_of_leave}}</td>
+        <td>{{i.reason}}</td>
+        <td>Pending</td>
+      </tr>
+      {% endfor %}
+      
+      
+    </tbody>
+  </table>
+</div>
+{% comment %} <script src="" async defer></script> {% endcomment %}
+
+{% endblock %}

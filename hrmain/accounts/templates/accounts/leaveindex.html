@@ -1,0 +1,25 @@
+
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block title %} Leave Application {% endblock %}
+<link rel="stylesheet" type="text/css", href={% static "css/leavestyle.css"%}>
+<script scr={% static "js/leaveindex.js" %} type="text/javascript"></script>
+{% block body %}
+        <div class="main-content" id="create-leave-application">
+            <form class="leave-application-form" action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button class="button-51">Make Request</button>
+
+        </div>
+            </form>   
+        <!-- leave report will be added inside the following div -->
+        
+
+
+    </div>
+    <script src="js\leaveindex.js"></script>
+
+
+{% endblock %} 

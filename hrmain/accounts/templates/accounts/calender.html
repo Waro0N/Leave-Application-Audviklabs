@@ -1,0 +1,10 @@
+{% extends 'accounts/base.html' %}
+
+{% load static %}
+
+
+{% block body %}
+<div class='framepdf'>
+    <iframe class="frame" src={% static "pdfs/audvikcal.pdf" %}></iframe>
+</div>
+{% endblock %}

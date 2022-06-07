@@ -1,0 +1,121 @@
+/* This is the home page stylesheet */
+
+*{margin: 0;padding: 0; box-sizing: border-box;
+    font-family: "Poppins", sans-serif;}
+
+
+.container{
+    /* background-image: url(abstract-rainbow-coloured-sky-with-sunburst_1048-14751.jpg); */
+    width: 100%;
+    height: 100vh;
+}
+
+.left-panel{
+    width:50%;
+    font-size: 48px;
+    margin: 0px 100px;
+    padding-top: 150px;
+    color: #2e4245;
+    letter-spacing: 2px;
+}
+/* ************* */
+.home-login-btn{
+    float: right;
+    margin: 10px 30px;
+    color:white;
+    background-color: blueviolet; 
+    width: auto;
+    height: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .home-login-btn a{
+    text-decoration: none;
+    color:white;
+  }
+
+  .home-login-btn :hover{
+    width: auto;
+    font-size: 14px;
+  }
+
+
+
+
+.home-page-logo{
+    float: left;
+    width: 100px;
+    height: 100px;
+ 
+}
+/* *********** */
+.patterns {
+    height: 100vh;
+    width: 100%; 
+  }
+
+  .home-page-logo{
+    margin: 30px 40%;
+    width: 300px;
+    height: 300px;
+    opacity: 0.5;
+    border-radius: 5px;
+  }
+  
+   .patterns p {
+    width:1200px;
+    font-weight: bolder;
+    font-size: small;
+    padding: 1px 10px ;
+    margin: 30px auto;
+    text-align: center;
+
+    /* left:50%;
+    animation: scrolling 10s linear ; */
+  }
+  /* @keyframes scrolling{
+    0%{
+      transform: translateX(-100%);
+    }
+    100%{
+      transform: translateX(100%);
+    }
+  }  */
+  
+  .patterns h5{
+    font-size: x-small;
+    font-weight:800;
+    float: right;
+    margin-right: 6%;
+    color:blueviolet
+  }
+  svg text {
+
+    font-family: Lora;
+    letter-spacing: 10px;
+    stroke: hsla(255, 84%, 52%,0.5);
+    font-size: 60px;
+    font-weight: 700;
+    stroke-width: 3;
+    animation: textAnimate 10s infinite alternate;
+    
+  }
+  
+  @keyframes textAnimate {
+    0% {
+      stroke-dasharray: 0 50%;
+      stroke-dashoffset:  20%;
+      fill:hsl(280, 46%, 5%)
+  
+    }
+    
+    100% {
+      stroke-dasharray: 50% 0;
+      stroke-dashoffstet: -20%;
+      fill: hsla(189, 68%, 75%,0%)
+    }
+    
+  }
