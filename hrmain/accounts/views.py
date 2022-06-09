@@ -7,38 +7,12 @@ from django.http import HttpRequest, HttpResponse,HttpResponseRedirect, FileResp
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
 from .forms import LeaveAppform
-
+from . import models
 from .models import LeaveApp
 
 
 
 # Create your views here.
-
-
-
-
-def login_view(request):
-    if request.method=='POST':
-        
-        loginusername = request.POST['lusername']
-        loginpassword = request.POST['lpass']
-        user = authenticate(request, username = loginusername, password = loginpassword)
-        
-        if user is not None:
-            login(request, user)
-            return redirect('dashboard')
-        else:
-            messages.error(request, 'This User is not existed in our database, Please enter a valid user id')
-            return redirect('login') 
-    
-        
-    return render(request, 'accounts/login.html') 
-
-
-def logout_view(request):
-    logout(request)
-    return redirect('login')
-
 @login_required
 def dashboard(request):
     if request.method == 'POST':
@@ -50,7 +24,7 @@ def dashboard(request):
             tdate = form.cleaned_data['tdate']
             type_of_leave=form.cleaned_data['type_of_leave']
             
-        myreq= LeaveApp(reason = reason, fdate = fdate, tdate=tdate, type_of_leave=type_of_leave)
+        myreq= LeaveApp(authuser = request.user, reason = reason, fdate = fdate, tdate=tdate, type_of_leave=type_of_leave)
         myreq.save()
     
     form = LeaveAppform()
@@ -61,18 +35,11 @@ def dashboard(request):
 
 @login_required
 def leave_status(request):
-    leavedata=LeaveApp.objects.all()
-    page= request.GET.get('page', 1)
-    paginator = Paginator(leavedata,5)
-    try:
-        page_obj=paginator.get_page(page)
-    except PageNotAnInteger:
-        page_obj = paginator.page(1)
-    except EmptyPage:
-        page_obj=paginator.page(paginator.num_pages)
-        
     
-    params = {'page_obj':page_obj}
+    leavedata=LeaveApp.objects.filter(authuser=request.user)
+    
+    
+    params = {'leavedata':leavedata}
     return render(request, 'accounts/leavestatus.html', params)
 
 

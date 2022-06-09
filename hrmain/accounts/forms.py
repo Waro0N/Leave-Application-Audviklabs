@@ -1,5 +1,6 @@
 from .models import LeaveApp, Sick_leave
 from django import forms
+from django.contrib.auth.models import User
 
 
 
@@ -15,3 +16,4 @@ class LeaveAppform(forms.ModelForm):
     class Meta:
         model = LeaveApp
         fields = ('fdate', 'tdate', 'type_of_leave', 'reason')
+        
